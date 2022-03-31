@@ -1,0 +1,2 @@
+use face;
+db.face.remove({});
