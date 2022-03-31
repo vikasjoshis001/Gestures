@@ -1,0 +1,300 @@
+2022-03-31 12:22:17.787 INFO Train - trainImages: MongoDB database connected successfully
+2022-03-31 12:22:17.788 INFO Train - trainImages: collected all folders in known_people folder
+2022-03-31 12:22:17.789 DEBUG Train - trainImages: ['tyrion lannister', 'Shubham-2022-03-31 12:14:08.769566', 'denerys targeryan', 'cersie lannister', 'king in the north', 'vhm-2022-03-31 12:22:16.839677', 'Chai-2022-03-31 12:20:10.218479', 'arya stark', 'Sad-2022-03-31 12:16:52.952750', 'Vikas-2022-03-12 15:33:49.979215']
+2022-03-31 12:22:17.789 INFO Train - trainImages: collected all images from all folders in known_people folder
+2022-03-31 12:22:17.789 DEBUG Train - trainImages: [['/home/vikasjoshis001/Desktop/Gestures/images_to_train/tyrion lannister/images5.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/tyrion lannister/index3.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/tyrion lannister/index1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/tyrion lannister/index2.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/tyrion lannister/index4.jpeg'], ['/home/vikasjoshis001/Desktop/Gestures/images_to_train/Shubham-2022-03-31 12:14:08.769566/Shubham.f8cc63d4-b0bd-11ec-95c9-353773ec36e1.jpeg'], ['/home/vikasjoshis001/Desktop/Gestures/images_to_train/denerys targeryan/index3.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/denerys targeryan/index5.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/denerys targeryan/index1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/denerys targeryan/index2.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/denerys targeryan/index4.jpeg'], ['/home/vikasjoshis001/Desktop/Gestures/images_to_train/cersie lannister/index3.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/cersie lannister/index5.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/cersie lannister/index2.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/cersie lannister/index4.jpeg'], ['/home/vikasjoshis001/Desktop/Gestures/images_to_train/king in the north/index.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/king in the north/index3.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/king in the north/index5.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/king in the north/index2.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/king in the north/index4.jpeg'], ['/home/vikasjoshis001/Desktop/Gestures/images_to_train/vhm-2022-03-31 12:22:16.839677/vhm.1a7afe73-b0bf-11ec-95c9-353773ec36e1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/vhm-2022-03-31 12:22:16.839677/vhm.1a7afe72-b0bf-11ec-95c9-353773ec36e1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/vhm-2022-03-31 12:22:16.839677/vhm.1a7afe75-b0bf-11ec-95c9-353773ec36e1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/vhm-2022-03-31 12:22:16.839677/vhm.1a7afe74-b0bf-11ec-95c9-353773ec36e1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/vhm-2022-03-31 12:22:16.839677/vhm.1a7afe76-b0bf-11ec-95c9-353773ec36e1.jpeg'], ['/home/vikasjoshis001/Desktop/Gestures/images_to_train/Chai-2022-03-31 12:20:10.218479/Chai.cf03ab39-b0be-11ec-95c9-353773ec36e1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/Chai-2022-03-31 12:20:10.218479/Chai.cf03ab3b-b0be-11ec-95c9-353773ec36e1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/Chai-2022-03-31 12:20:10.218479/Chai.cf03ab38-b0be-11ec-95c9-353773ec36e1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/Chai-2022-03-31 12:20:10.218479/Chai.cf03ab3c-b0be-11ec-95c9-353773ec36e1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/Chai-2022-03-31 12:20:10.218479/Chai.cf03ab3a-b0be-11ec-95c9-353773ec36e1.jpeg'], ['/home/vikasjoshis001/Desktop/Gestures/images_to_train/arya stark/index.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/arya stark/index3.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/arya stark/index5.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/arya stark/index2.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/arya stark/images4.jpeg'], ['/home/vikasjoshis001/Desktop/Gestures/images_to_train/Sad-2022-03-31 12:16:52.952750/Sad.596d38de-b0be-11ec-95c9-353773ec36e1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/Sad-2022-03-31 12:16:52.952750/Sad.596d38dd-b0be-11ec-95c9-353773ec36e1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/Sad-2022-03-31 12:16:52.952750/Sad.596d38da-b0be-11ec-95c9-353773ec36e1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/Sad-2022-03-31 12:16:52.952750/Sad.596d38db-b0be-11ec-95c9-353773ec36e1.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/Sad-2022-03-31 12:16:52.952750/Sad.596d38dc-b0be-11ec-95c9-353773ec36e1.jpeg'], ['/home/vikasjoshis001/Desktop/Gestures/images_to_train/Vikas-2022-03-12 15:33:49.979215/Vikas.b761c802-a1eb-11ec-a348-e960390a4373.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/Vikas-2022-03-12 15:33:49.979215/Vikas.b9e21fbe-a1eb-11ec-a348-e960390a4373.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/Vikas-2022-03-12 15:33:49.979215/Vikas.b761c803-a1eb-11ec-a348-e960390a4373.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/Vikas-2022-03-12 15:33:49.979215/Vikas.b8aa7a74-a1eb-11ec-a348-e960390a4373.jpeg', '/home/vikasjoshis001/Desktop/Gestures/images_to_train/Vikas-2022-03-12 15:33:49.979215/Vikas.b8aa7a75-a1eb-11ec-a348-e960390a4373.jpeg']]
+2022-03-31 12:22:17.789 INFO Train - trainImages: started loading images and finding their encodings
+2022-03-31 12:22:17.790 INFO Train - trainImages: loading image
+2022-03-31 12:22:17.796 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/tyrion lannister/images5.jpeg
+2022-03-31 12:22:17.796 INFO Train - trainImages: loading image done
+2022-03-31 12:22:17.796 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:17.912 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:17.912 INFO Train - trainImages: loading image
+2022-03-31 12:22:17.913 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/tyrion lannister/index3.jpeg
+2022-03-31 12:22:17.913 INFO Train - trainImages: loading image done
+2022-03-31 12:22:17.913 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:18.017 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:18.018 INFO Train - trainImages: loading image
+2022-03-31 12:22:18.018 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/tyrion lannister/index1.jpeg
+2022-03-31 12:22:18.019 INFO Train - trainImages: loading image done
+2022-03-31 12:22:18.019 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:18.125 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:18.125 INFO Train - trainImages: loading image
+2022-03-31 12:22:18.126 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/tyrion lannister/index2.jpeg
+2022-03-31 12:22:18.126 INFO Train - trainImages: loading image done
+2022-03-31 12:22:18.126 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:18.229 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:18.229 INFO Train - trainImages: loading image
+2022-03-31 12:22:18.230 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/tyrion lannister/index4.jpeg
+2022-03-31 12:22:18.230 INFO Train - trainImages: loading image done
+2022-03-31 12:22:18.230 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:18.329 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:18.329 INFO Train - trainImages: getting average of encodings of loaded images
+2022-03-31 12:22:18.329 INFO Train - trainImages: done with getting average encodings
+2022-03-31 12:22:18.329 INFO Train - trainImages: storing the name and encoding in local dictionary
+2022-03-31 12:22:18.330 INFO Train - trainImages: stored name and encodes in local dictionary
+2022-03-31 12:22:18.330 INFO Train - trainImages: storing the name and encodings in mongodb
+2022-03-31 12:22:18.331 INFO Train - trainImages: stored all name and encodes in mongodb
+2022-03-31 12:22:18.331 INFO Train - trainImages: started loading images and finding their encodings
+2022-03-31 12:22:18.331 INFO Train - trainImages: loading image
+2022-03-31 12:22:18.335 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Shubham-2022-03-31 12:14:08.769566/Shubham.f8cc63d4-b0bd-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:18.335 INFO Train - trainImages: loading image done
+2022-03-31 12:22:18.335 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:18.618 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:18.619 INFO Train - trainImages: getting average of encodings of loaded images
+2022-03-31 12:22:18.619 INFO Train - trainImages: done with getting average encodings
+2022-03-31 12:22:18.619 INFO Train - trainImages: storing the name and encoding in local dictionary
+2022-03-31 12:22:18.619 INFO Train - trainImages: stored name and encodes in local dictionary
+2022-03-31 12:22:18.619 INFO Train - trainImages: storing the name and encodings in mongodb
+2022-03-31 12:22:18.620 INFO Train - trainImages: stored all name and encodes in mongodb
+2022-03-31 12:22:18.620 INFO Train - trainImages: started loading images and finding their encodings
+2022-03-31 12:22:18.620 INFO Train - trainImages: loading image
+2022-03-31 12:22:18.621 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/denerys targeryan/index3.jpeg
+2022-03-31 12:22:18.621 INFO Train - trainImages: loading image done
+2022-03-31 12:22:18.621 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:18.727 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:18.727 INFO Train - trainImages: loading image
+2022-03-31 12:22:18.728 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/denerys targeryan/index5.jpeg
+2022-03-31 12:22:18.728 INFO Train - trainImages: loading image done
+2022-03-31 12:22:18.728 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:18.829 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:18.829 INFO Train - trainImages: loading image
+2022-03-31 12:22:18.830 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/denerys targeryan/index1.jpeg
+2022-03-31 12:22:18.830 INFO Train - trainImages: loading image done
+2022-03-31 12:22:18.830 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:18.907 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:18.907 INFO Train - trainImages: loading image
+2022-03-31 12:22:18.908 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/denerys targeryan/index2.jpeg
+2022-03-31 12:22:18.908 INFO Train - trainImages: loading image done
+2022-03-31 12:22:18.908 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:18.983 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:18.983 INFO Train - trainImages: loading image
+2022-03-31 12:22:18.983 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/denerys targeryan/index4.jpeg
+2022-03-31 12:22:18.983 INFO Train - trainImages: loading image done
+2022-03-31 12:22:18.983 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:19.051 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:19.051 INFO Train - trainImages: getting average of encodings of loaded images
+2022-03-31 12:22:19.051 INFO Train - trainImages: done with getting average encodings
+2022-03-31 12:22:19.051 INFO Train - trainImages: storing the name and encoding in local dictionary
+2022-03-31 12:22:19.051 INFO Train - trainImages: stored name and encodes in local dictionary
+2022-03-31 12:22:19.051 INFO Train - trainImages: storing the name and encodings in mongodb
+2022-03-31 12:22:19.052 INFO Train - trainImages: stored all name and encodes in mongodb
+2022-03-31 12:22:19.052 INFO Train - trainImages: started loading images and finding their encodings
+2022-03-31 12:22:19.052 INFO Train - trainImages: loading image
+2022-03-31 12:22:19.053 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/cersie lannister/index3.jpeg
+2022-03-31 12:22:19.053 INFO Train - trainImages: loading image done
+2022-03-31 12:22:19.053 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:19.121 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:19.121 INFO Train - trainImages: loading image
+2022-03-31 12:22:19.121 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/cersie lannister/index5.jpeg
+2022-03-31 12:22:19.121 INFO Train - trainImages: loading image done
+2022-03-31 12:22:19.121 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:19.190 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:19.190 INFO Train - trainImages: loading image
+2022-03-31 12:22:19.191 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/cersie lannister/index2.jpeg
+2022-03-31 12:22:19.191 INFO Train - trainImages: loading image done
+2022-03-31 12:22:19.191 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:19.302 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:19.302 INFO Train - trainImages: loading image
+2022-03-31 12:22:19.303 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/cersie lannister/index4.jpeg
+2022-03-31 12:22:19.303 INFO Train - trainImages: loading image done
+2022-03-31 12:22:19.303 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:19.401 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:19.401 INFO Train - trainImages: getting average of encodings of loaded images
+2022-03-31 12:22:19.402 INFO Train - trainImages: done with getting average encodings
+2022-03-31 12:22:19.402 INFO Train - trainImages: storing the name and encoding in local dictionary
+2022-03-31 12:22:19.402 INFO Train - trainImages: stored name and encodes in local dictionary
+2022-03-31 12:22:19.402 INFO Train - trainImages: storing the name and encodings in mongodb
+2022-03-31 12:22:19.403 INFO Train - trainImages: stored all name and encodes in mongodb
+2022-03-31 12:22:19.403 INFO Train - trainImages: started loading images and finding their encodings
+2022-03-31 12:22:19.403 INFO Train - trainImages: loading image
+2022-03-31 12:22:19.404 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/king in the north/index.jpeg
+2022-03-31 12:22:19.404 INFO Train - trainImages: loading image done
+2022-03-31 12:22:19.404 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:19.507 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:19.507 INFO Train - trainImages: loading image
+2022-03-31 12:22:19.508 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/king in the north/index3.jpeg
+2022-03-31 12:22:19.508 INFO Train - trainImages: loading image done
+2022-03-31 12:22:19.508 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:19.601 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:19.601 INFO Train - trainImages: loading image
+2022-03-31 12:22:19.602 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/king in the north/index5.jpeg
+2022-03-31 12:22:19.602 INFO Train - trainImages: loading image done
+2022-03-31 12:22:19.602 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:19.671 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:19.671 INFO Train - trainImages: loading image
+2022-03-31 12:22:19.672 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/king in the north/index2.jpeg
+2022-03-31 12:22:19.672 INFO Train - trainImages: loading image done
+2022-03-31 12:22:19.672 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:19.743 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:19.743 INFO Train - trainImages: loading image
+2022-03-31 12:22:19.743 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/king in the north/index4.jpeg
+2022-03-31 12:22:19.744 INFO Train - trainImages: loading image done
+2022-03-31 12:22:19.744 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:19.813 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:19.813 INFO Train - trainImages: getting average of encodings of loaded images
+2022-03-31 12:22:19.813 INFO Train - trainImages: done with getting average encodings
+2022-03-31 12:22:19.813 INFO Train - trainImages: storing the name and encoding in local dictionary
+2022-03-31 12:22:19.813 INFO Train - trainImages: stored name and encodes in local dictionary
+2022-03-31 12:22:19.813 INFO Train - trainImages: storing the name and encodings in mongodb
+2022-03-31 12:22:19.814 INFO Train - trainImages: stored all name and encodes in mongodb
+2022-03-31 12:22:19.814 INFO Train - trainImages: started loading images and finding their encodings
+2022-03-31 12:22:19.814 INFO Train - trainImages: loading image
+2022-03-31 12:22:19.817 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/vhm-2022-03-31 12:22:16.839677/vhm.1a7afe73-b0bf-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:19.817 INFO Train - trainImages: loading image done
+2022-03-31 12:22:19.817 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:19.999 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:19.999 INFO Train - trainImages: loading image
+2022-03-31 12:22:20.002 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/vhm-2022-03-31 12:22:16.839677/vhm.1a7afe72-b0bf-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:20.002 INFO Train - trainImages: loading image done
+2022-03-31 12:22:20.002 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:20.184 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:20.185 INFO Train - trainImages: loading image
+2022-03-31 12:22:20.187 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/vhm-2022-03-31 12:22:16.839677/vhm.1a7afe75-b0bf-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:20.187 INFO Train - trainImages: loading image done
+2022-03-31 12:22:20.187 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:20.368 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:20.369 INFO Train - trainImages: loading image
+2022-03-31 12:22:20.371 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/vhm-2022-03-31 12:22:16.839677/vhm.1a7afe74-b0bf-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:20.372 INFO Train - trainImages: loading image done
+2022-03-31 12:22:20.372 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:20.561 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:20.561 INFO Train - trainImages: loading image
+2022-03-31 12:22:20.564 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/vhm-2022-03-31 12:22:16.839677/vhm.1a7afe76-b0bf-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:20.564 INFO Train - trainImages: loading image done
+2022-03-31 12:22:20.564 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:20.749 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:20.749 INFO Train - trainImages: getting average of encodings of loaded images
+2022-03-31 12:22:20.749 INFO Train - trainImages: done with getting average encodings
+2022-03-31 12:22:20.749 INFO Train - trainImages: storing the name and encoding in local dictionary
+2022-03-31 12:22:20.749 INFO Train - trainImages: stored name and encodes in local dictionary
+2022-03-31 12:22:20.749 INFO Train - trainImages: storing the name and encodings in mongodb
+2022-03-31 12:22:20.750 INFO Train - trainImages: stored all name and encodes in mongodb
+2022-03-31 12:22:20.750 INFO Train - trainImages: started loading images and finding their encodings
+2022-03-31 12:22:20.750 INFO Train - trainImages: loading image
+2022-03-31 12:22:20.753 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Chai-2022-03-31 12:20:10.218479/Chai.cf03ab39-b0be-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:20.753 INFO Train - trainImages: loading image done
+2022-03-31 12:22:20.753 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:20.935 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:20.935 INFO Train - trainImages: loading image
+2022-03-31 12:22:20.938 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Chai-2022-03-31 12:20:10.218479/Chai.cf03ab3b-b0be-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:20.938 INFO Train - trainImages: loading image done
+2022-03-31 12:22:20.938 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:21.120 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:21.120 INFO Train - trainImages: loading image
+2022-03-31 12:22:21.123 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Chai-2022-03-31 12:20:10.218479/Chai.cf03ab38-b0be-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:21.123 INFO Train - trainImages: loading image done
+2022-03-31 12:22:21.123 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:21.307 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:21.307 INFO Train - trainImages: loading image
+2022-03-31 12:22:21.310 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Chai-2022-03-31 12:20:10.218479/Chai.cf03ab3c-b0be-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:21.310 INFO Train - trainImages: loading image done
+2022-03-31 12:22:21.310 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:21.492 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:21.492 INFO Train - trainImages: loading image
+2022-03-31 12:22:21.495 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Chai-2022-03-31 12:20:10.218479/Chai.cf03ab3a-b0be-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:21.495 INFO Train - trainImages: loading image done
+2022-03-31 12:22:21.495 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:21.678 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:21.678 INFO Train - trainImages: getting average of encodings of loaded images
+2022-03-31 12:22:21.679 INFO Train - trainImages: done with getting average encodings
+2022-03-31 12:22:21.679 INFO Train - trainImages: storing the name and encoding in local dictionary
+2022-03-31 12:22:21.679 INFO Train - trainImages: stored name and encodes in local dictionary
+2022-03-31 12:22:21.679 INFO Train - trainImages: storing the name and encodings in mongodb
+2022-03-31 12:22:21.680 INFO Train - trainImages: stored all name and encodes in mongodb
+2022-03-31 12:22:21.680 INFO Train - trainImages: started loading images and finding their encodings
+2022-03-31 12:22:21.680 INFO Train - trainImages: loading image
+2022-03-31 12:22:21.680 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/arya stark/index.jpeg
+2022-03-31 12:22:21.680 INFO Train - trainImages: loading image done
+2022-03-31 12:22:21.680 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:21.751 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:21.751 INFO Train - trainImages: loading image
+2022-03-31 12:22:21.752 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/arya stark/index3.jpeg
+2022-03-31 12:22:21.752 INFO Train - trainImages: loading image done
+2022-03-31 12:22:21.752 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:21.820 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:21.820 INFO Train - trainImages: loading image
+2022-03-31 12:22:21.821 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/arya stark/index5.jpeg
+2022-03-31 12:22:21.821 INFO Train - trainImages: loading image done
+2022-03-31 12:22:21.821 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:21.892 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:21.892 INFO Train - trainImages: loading image
+2022-03-31 12:22:21.893 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/arya stark/index2.jpeg
+2022-03-31 12:22:21.893 INFO Train - trainImages: loading image done
+2022-03-31 12:22:21.893 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:21.962 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:21.962 INFO Train - trainImages: loading image
+2022-03-31 12:22:21.963 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/arya stark/images4.jpeg
+2022-03-31 12:22:21.963 INFO Train - trainImages: loading image done
+2022-03-31 12:22:21.963 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:22.031 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:22.031 INFO Train - trainImages: getting average of encodings of loaded images
+2022-03-31 12:22:22.032 INFO Train - trainImages: done with getting average encodings
+2022-03-31 12:22:22.032 INFO Train - trainImages: storing the name and encoding in local dictionary
+2022-03-31 12:22:22.032 INFO Train - trainImages: stored name and encodes in local dictionary
+2022-03-31 12:22:22.032 INFO Train - trainImages: storing the name and encodings in mongodb
+2022-03-31 12:22:22.032 INFO Train - trainImages: stored all name and encodes in mongodb
+2022-03-31 12:22:22.033 INFO Train - trainImages: started loading images and finding their encodings
+2022-03-31 12:22:22.033 INFO Train - trainImages: loading image
+2022-03-31 12:22:22.035 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Sad-2022-03-31 12:16:52.952750/Sad.596d38de-b0be-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:22.035 INFO Train - trainImages: loading image done
+2022-03-31 12:22:22.035 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:22.216 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:22.216 INFO Train - trainImages: loading image
+2022-03-31 12:22:22.219 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Sad-2022-03-31 12:16:52.952750/Sad.596d38dd-b0be-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:22.219 INFO Train - trainImages: loading image done
+2022-03-31 12:22:22.219 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:22.401 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:22.401 INFO Train - trainImages: loading image
+2022-03-31 12:22:22.404 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Sad-2022-03-31 12:16:52.952750/Sad.596d38da-b0be-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:22.404 INFO Train - trainImages: loading image done
+2022-03-31 12:22:22.405 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:22.586 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:22.586 INFO Train - trainImages: loading image
+2022-03-31 12:22:22.589 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Sad-2022-03-31 12:16:52.952750/Sad.596d38db-b0be-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:22.589 INFO Train - trainImages: loading image done
+2022-03-31 12:22:22.589 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:22.772 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:22.772 INFO Train - trainImages: loading image
+2022-03-31 12:22:22.775 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Sad-2022-03-31 12:16:52.952750/Sad.596d38dc-b0be-11ec-95c9-353773ec36e1.jpeg
+2022-03-31 12:22:22.775 INFO Train - trainImages: loading image done
+2022-03-31 12:22:22.775 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:22.959 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:22.959 INFO Train - trainImages: getting average of encodings of loaded images
+2022-03-31 12:22:22.959 INFO Train - trainImages: done with getting average encodings
+2022-03-31 12:22:22.959 INFO Train - trainImages: storing the name and encoding in local dictionary
+2022-03-31 12:22:22.959 INFO Train - trainImages: stored name and encodes in local dictionary
+2022-03-31 12:22:22.959 INFO Train - trainImages: storing the name and encodings in mongodb
+2022-03-31 12:22:22.960 INFO Train - trainImages: stored all name and encodes in mongodb
+2022-03-31 12:22:22.960 INFO Train - trainImages: started loading images and finding their encodings
+2022-03-31 12:22:22.960 INFO Train - trainImages: loading image
+2022-03-31 12:22:22.962 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Vikas-2022-03-12 15:33:49.979215/Vikas.b761c802-a1eb-11ec-a348-e960390a4373.jpeg
+2022-03-31 12:22:22.962 INFO Train - trainImages: loading image done
+2022-03-31 12:22:22.962 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:23.146 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:23.146 INFO Train - trainImages: loading image
+2022-03-31 12:22:23.149 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Vikas-2022-03-12 15:33:49.979215/Vikas.b9e21fbe-a1eb-11ec-a348-e960390a4373.jpeg
+2022-03-31 12:22:23.149 INFO Train - trainImages: loading image done
+2022-03-31 12:22:23.149 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:23.334 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:23.334 INFO Train - trainImages: loading image
+2022-03-31 12:22:23.337 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Vikas-2022-03-12 15:33:49.979215/Vikas.b761c803-a1eb-11ec-a348-e960390a4373.jpeg
+2022-03-31 12:22:23.337 INFO Train - trainImages: loading image done
+2022-03-31 12:22:23.337 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:23.521 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:23.522 INFO Train - trainImages: loading image
+2022-03-31 12:22:23.524 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Vikas-2022-03-12 15:33:49.979215/Vikas.b8aa7a74-a1eb-11ec-a348-e960390a4373.jpeg
+2022-03-31 12:22:23.524 INFO Train - trainImages: loading image done
+2022-03-31 12:22:23.524 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:23.708 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:23.708 INFO Train - trainImages: loading image
+2022-03-31 12:22:23.711 DEBUG Train - trainImages: /home/vikasjoshis001/Desktop/Gestures/images_to_train/Vikas-2022-03-12 15:33:49.979215/Vikas.b8aa7a75-a1eb-11ec-a348-e960390a4373.jpeg
+2022-03-31 12:22:23.711 INFO Train - trainImages: loading image done
+2022-03-31 12:22:23.711 INFO Train - trainImages: finding the encoding of image
+2022-03-31 12:22:23.894 INFO Train - trainImages: finding encoding of image is done
+2022-03-31 12:22:23.894 INFO Train - trainImages: getting average of encodings of loaded images
+2022-03-31 12:22:23.894 INFO Train - trainImages: done with getting average encodings
+2022-03-31 12:22:23.894 INFO Train - trainImages: storing the name and encoding in local dictionary
+2022-03-31 12:22:23.894 INFO Train - trainImages: stored name and encodes in local dictionary
+2022-03-31 12:22:23.894 INFO Train - trainImages: storing the name and encodings in mongodb
+2022-03-31 12:22:23.895 INFO Train - trainImages: stored all name and encodes in mongodb
