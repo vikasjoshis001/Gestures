@@ -12,10 +12,22 @@ from pymongo import MongoClient
 from datetime import datetime
 import shutil
 import configparser
+from tkinter import * 
+from tkinter.ttk import *
+import time
 
 
 class Train:
     def trainImages(self):
+        # GUI
+        train = Train()
+        root = Tk()
+        global progress
+        progress = Progressbar(root, orient=HORIZONTAL,
+                            length=100, mode='indeterminate')
+        progress.pack(pady=10)
+        train.bar(root)
+    
         # Read The Config File
         config = configparser.ConfigParser()
         config.read('config.ini')
@@ -152,5 +164,69 @@ class Train:
 
             # shutil.move(config['train']['images_to_train'] + '/' + names_images[d].strip(), config['train']['trained_images'])
             d = d + 1
+        
+        root.destroy()
+        
+            
+
+    def bar(self,root):
+        # global progress
+        progress['value'] = 20
+        root.update_idletasks()
+        time.sleep(0.5)
+
+        progress['value'] = 40
+        root.update_idletasks()
+        time.sleep(0.5)
+
+        progress['value'] = 50
+        root.update_idletasks()
+        time.sleep(0.5)
+
+        progress['value'] = 60
+        root.update_idletasks()
+        time.sleep(0.5)
+
+        progress['value'] = 80
+        root.update_idletasks()
+        time.sleep(0.5)
+
+        progress['value'] = 100
+        root.update_idletasks()
+        time.sleep(0.5)
+
+        progress['value'] = 80
+        root.update_idletasks()
+        time.sleep(0.5)
+
+        progress['value'] = 60
+        root.update_idletasks()
+        time.sleep(0.5)
+
+        progress['value'] = 50
+        root.update_idletasks()
+        time.sleep(0.5)
+
+        progress['value'] = 40
+        root.update_idletasks()
+        time.sleep(0.5)
+
+        progress['value'] = 20
+        root.update_idletasks()
+        time.sleep(0.5)
+        progress['value'] = 0
+
+if __name__ == "__main__":
+    train = Train()
+    train.trainImages()
+#     root = Tk()
+#     progress = Progressbar(root, orient=HORIZONTAL,
+#                         length=100, mode='indeterminate')
+#     progress.pack(pady=10)
+#     # This button will initialize
+#     # the progress bar
+#     Button(root, text='Start', command=bar).pack(pady=10)
+#     # infinite loop
+#     mainloop()
 
 
