@@ -2,12 +2,14 @@
 import configparser
 import os
 import time
+from turtle import home
 import uuid
 from datetime import datetime
 import datetime
 from tkinter import *
 import HandGestures as hg
 from tkinter import messagebox
+import sys
 
 import cv2
 import face_recognition
@@ -15,7 +17,6 @@ import numpy as np
 from PIL import ImageTk, Image
 from pymongo import MongoClient
 import Train
-import imutils
 
 
 def isAccepted():
@@ -43,7 +44,8 @@ def recognizeFace():
     while True:
         process_this_frame = True
         ret, frame = video_capture.read()
-        small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
+        small_frame = cv2.resize(
+            frame, (0, 0), fx=0.25, fy=0.25, interpolation=cv2.INTER_CUBIC)
         rgb_small_frame = small_frame[:, :, ::-1]
 
         if process_this_frame:
@@ -132,7 +134,7 @@ def recognizeFace():
 
         temptime = datetime.datetime.now()
         temp_encodings = frame
-        root.update()
+        home_window.update()
 
         # Hit 'q' on the keyboard to quit!
         if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -164,13 +166,15 @@ def connectDatabase():
 
 
 def createRegisterFrame():
+    # home_window.destroy()
     # root.destroy
     # root.pack_forget()
     # video_capture.release()
-    # root = Tk()
+    # input_window = Tk()
     global new_window
-    new_window = Toplevel(root)
-    new_window.geometry("500x200")
+    new_window = Toplevel(home_window)
+    # new_window.eval('tk::PlaceWindow . center')
+    new_window.geometry("500x150")
     new_window.title("Register")
     # new_window.resizable(False, False)
     leb = Label(new_window, text="Enter Name :- ")
@@ -199,6 +203,7 @@ def createRegisterFrame():
 
 
 def clickImages(face_name):
+    home_window.destroy()
     video_capture.release()
     uuid_name = face_name+'-'+str(datetime.datetime.now())
     print(uuid_name)
@@ -227,15 +232,16 @@ def clickImages(face_name):
             break
     cap.release()
     cv2.destroyAllWindows()
-    train_images.trainImages()
+    # train_images.trainImages()
 
 
 def registerFace():
     face_name = inp.get()
     clickImages(face_name)
-    messagebox.showinfo(title=None, message="Face registered successfully")
+    messagebox.showinfo("showinfo", "Face Registered Successfully")
     new_window.destroy()
-    startProject()
+    os.execl(sys.executable, sys.executable, *sys.argv)
+
 
 
 def startProject():
@@ -269,12 +275,15 @@ if __name__ == "__main__":
     IMAGES_PATH = "images_to_train"
     number_of_images = 5
     temp_face_encodes = []
-    global root
-    root = Tk()
+    # global root
+    home_window = Tk()
+    home_window.title("Home")
+    # home_window.geometry("500x150")
+    # home_window.eval('tk::PlaceWindow . center')
     # root.geometry("500x500")
 
     # Create a frame...
-    app = Frame(root, bg="white")
+    app = Frame(home_window, bg="white")
     # app.config(height=0,width=0)
     # Create a label in the frame...
     lmain = Label(app)
@@ -285,7 +294,7 @@ if __name__ == "__main__":
     app.grid(padx=10, pady=10)
     button1.grid(row=1, column=0, padx=30, pady=20)
     # time.sleep(3)/
-    # root.mainloop()
+    # home_window.mainloop()
     # root.destroy
 
     # Capture from camera...
@@ -301,6 +310,8 @@ if __name__ == "__main__":
         face_name = input()
         # face_name = "Vikas"
         clickImages()
+
+    # home_window.mainloop()
 
     # clickImages()
     startProject()

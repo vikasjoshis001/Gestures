@@ -21,12 +21,18 @@ class Train:
     def trainImages(self):
         # GUI
         train = Train()
-        root = Tk()
+        train_window = Tk()
+        # train_window.eval('tk::PlaceWindow . center')
         global progress
-        progress = Progressbar(root, orient=HORIZONTAL,
-                            length=100, mode='indeterminate')
+        train_window.geometry("500x150")
+        train_window.title("Training")
+        leb = Label(train_window, text="Training Model...")
+        leb.config(font=("Courier", 14))
+        progress = Progressbar(train_window, orient=HORIZONTAL,
+                            length=300, mode='indeterminate')
+        leb.pack(pady=20)
         progress.pack(pady=10)
-        train.bar(root)
+        train.bar(train_window)
     
         # Read The Config File
         config = configparser.ConfigParser()
@@ -165,7 +171,7 @@ class Train:
             # shutil.move(config['train']['images_to_train'] + '/' + names_images[d].strip(), config['train']['trained_images'])
             d = d + 1
         
-        root.destroy()
+        train_window.destroy()
         
             
 
