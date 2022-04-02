@@ -291,8 +291,13 @@ if __name__ == "__main__":
     lmain.grid()
     button1 = Button(app, text="", command=isAccepted)
     button1.config(height=2, width=15)
+    # button2 = Button(app, text="", command=isAccepted)
+    # button2.config(height=2, width=15)
     app.grid(padx=10, pady=10)
     button1.grid(row=1, column=0, padx=30, pady=20)
+    # button2.grid(padx=30, pady=20)
+
+
     # time.sleep(3)/
     # home_window.mainloop()
     # root.destroy
