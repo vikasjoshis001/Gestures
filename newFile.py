@@ -111,14 +111,14 @@ def recognizeFace():
 
             if '_'.join(face_names) == 'Unknown':
                 # Draw a box around the face
-                button1['text'] = "Register"
-                button1['bg'] = "blue"
-                button1['command'] = lambda: createRegisterFrame()
+                name_button['text'] = "Unknown"
+                name_button['bg'] = "blue"
+                name_button['command'] = lambda: open_details_frame()
             else:
                 # Draw a box around the face
-                button1['text'] = "Register"
-                button1['bg'] = "blue"
-                button1['command'] = lambda: createRegisterFrame()
+                name_button['text'] = face_names[0].split("-")[0]
+                name_button['bg'] = "blue"
+                name_button['command'] = lambda: open_details_frame()
 
         name = '_'.join(face_names)
         # videoStream(frame, name)
@@ -171,10 +171,12 @@ def createRegisterFrame():
     # root.pack_forget()
     # video_capture.release()
     # input_window = Tk()
+    pass_window.destroy()
     global new_window
     new_window = Toplevel(home_window)
     # new_window.eval('tk::PlaceWindow . center')
-    new_window.geometry("500x150")
+    # new_window.geometry("500x150")
+    centerWindow(500, 150, new_window)
     new_window.title("Register")
     # new_window.resizable(False, False)
     leb = Label(new_window, text="Enter Name :- ")
@@ -193,6 +195,7 @@ def createRegisterFrame():
     leb.grid(sticky='w', padx=10, pady=10)
     inp.grid(padx=10, pady=10)
     register_button.grid(padx=10, pady=10)
+    print(" Create Regster Frame...")
 
     # entry1 = root.Entry(root)
     # canvas1.create_window(200, 140, window=entry1)
@@ -212,6 +215,8 @@ def clickImages(face_name):
     cap = cv2.VideoCapture(0)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 300)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 300)
+    
+    
     # time.sleep(2)
     index = 1
     for images in range(5):
@@ -227,21 +232,29 @@ def clickImages(face_name):
             IMAGES_PATH, uuid_name, face_name + '.' + '{}.jpeg'.format(str(uuid.uuid1())))
         cv2.imwrite(image_name, img)
         cv2.imshow('image', img)
+        cv2.moveWindow('image', 500,250)
         time.sleep(1)
         if cv2.waitKey(1) and 0xFF == ord('q'):
             break
     cap.release()
     cv2.destroyAllWindows()
-    # train_images.trainImages()
+    train_images.trainImages()
 
 
 def registerFace():
     face_name = inp.get()
     clickImages(face_name)
-    messagebox.showinfo("showinfo", "Face Registered Successfully")
-    new_window.destroy()
-    os.execl(sys.executable, sys.executable, *sys.argv)
+    success_window = Tk()
+    # success_window.geometry("0x0")
+    centerWindow(0, 0, success_window)
+    messagebox.showinfo('Success', 'Face Registered Successfully')
+    print("Registering Face...")
+    os.system("python3 newFile.py")
+    # success_window.destroy()
+    # new_window.destroy()
 
+# def exitCode():
+#     sys.exit()
 
 
 def startProject():
@@ -250,6 +263,95 @@ def startProject():
     global video_capture
     video_capture = cv2.VideoCapture(0)
     recognizeFace()
+
+
+def enterPassword():
+    global pass_window
+    pass_window = Tk()
+    # new_window.eval('tk::PlaceWindow . center')
+    # pass_window.geometry("500x150")
+    centerWindow(500, 150, pass_window)
+    pass_window.title("Authentication using Password")
+    # new_window.resizable(False, False)
+    pass_leb = Label(pass_window, text="Enter System Password :- ")
+    pass_leb.config(font=("Courier", 14))
+    # global inp
+    pass_inp = Entry(pass_window, show="*", width=60)
+
+    # app = Frame(root, bg="white")
+    pass_button = Button(
+        pass_window, text="Verify", command=createRegisterFrame)
+    # app.grid()
+    # register_button['command'] = lambda: registerFace(inp)
+    # leb.grid(padx=10, pady=10)
+    # inp.grid(padx=6, pady=8)
+    # register_button.grid(padx=10, pady=10)
+    pass_leb.grid(sticky='w', padx=10, pady=10)
+    pass_inp.grid(padx=10, pady=10)
+    pass_button.grid(padx=10, pady=10)
+
+
+def helpFrame():
+    help_window = Toplevel(home_window)
+    help_window.title("Help")
+    # help_window.geometry("700x500")
+    centerWindow(700, 500, help_window)
+
+    frame1 = Frame(help_window, width=0, height=50)
+    frame1.grid()
+    frame1.place(anchor='w', rely=0.4)
+
+    # Exit Image
+    img1 = ImageTk.PhotoImage(Image.open("FingerImages/exit.png"))
+    image_label_exit = Label(frame1, image=img1)
+    alt_label_exit = Label(frame1, text="Exit")
+    alt_label_exit.config(font=("Courier", 14))
+    image_label_exit.grid(row=0, column=0, padx=50, pady=10)
+    alt_label_exit.grid(row=1, column=0, padx=10, pady=10)
+
+    # LockUnlock Image
+    img2 = ImageTk.PhotoImage(Image.open("FingerImages/lockunlock.png"))
+    image_label_lockunlock = Label(frame1, image=img2)
+    alt_label_lockunlock = Label(frame1, text="Screen Lock/Unlock")
+    alt_label_lockunlock.config(font=("Courier", 14))
+    image_label_lockunlock.grid(row=0, column=1, padx=30, pady=5)
+    alt_label_lockunlock.grid(row=1, column=1, padx=30, pady=10)
+
+    # Restart
+    img3 = ImageTk.PhotoImage(Image.open("FingerImages/restart.png"))
+    image_label_restart = Label(frame1, image=img3)
+    alt_label_restart = Label(frame1, text="System Restart")
+    alt_label_restart.config(font=("Courier", 14))
+    image_label_restart.grid(row=0, column=2, padx=10, pady=10)
+    alt_label_restart.grid(row=1, column=2, padx=10, pady=10)
+
+    # Save
+    img4 = ImageTk.PhotoImage(Image.open("FingerImages/save.png"))
+    image_label_save = Label(frame1, image=img4)
+    alt_label_save = Label(frame1, text="Save File")
+    alt_label_save.config(font=("Courier", 14))
+    image_label_save.grid(row=2, column=0, padx=10, pady=10)
+    alt_label_save.grid(row=3, column=0, padx=10, pady=10)
+
+    # Shutdown
+    img5 = ImageTk.PhotoImage(Image.open("FingerImages/shutdown.png"))
+    image_label_shutdown = Label(frame1, image=img5)
+    alt_label_shutdown = Label(frame1, text="System Shutdown")
+    alt_label_shutdown.config(font=("Courier", 14))
+    image_label_shutdown.grid(row=2, column=1, padx=10, pady=10)
+    alt_label_shutdown.grid(row=3, column=1, padx=10, pady=10)
+
+    help_window.mainloop()
+
+
+def centerWindow(width, height, window):
+    w = width
+    h = height
+    ws = window.winfo_screenwidth()
+    hs = window.winfo_screenheight()
+    x = (ws/2) - (w/2)
+    y = (hs/2) - (h/2)
+    window.geometry('%dx%d+%d+%d' % (w, h, x, y))
 
 
 if __name__ == "__main__":
@@ -275,12 +377,14 @@ if __name__ == "__main__":
     IMAGES_PATH = "images_to_train"
     number_of_images = 5
     temp_face_encodes = []
+
     # global root
     home_window = Tk()
     home_window.title("Home")
     # home_window.geometry("500x150")
     # home_window.eval('tk::PlaceWindow . center')
-    # root.geometry("500x500")
+    # home_window.geometry("700x700")
+    centerWindow(700, 700, home_window)
 
     # Create a frame...
     app = Frame(home_window, bg="white")
@@ -288,15 +392,27 @@ if __name__ == "__main__":
     # Create a label in the frame...
     lmain = Label(app)
     # lmain.config(font=('Helvetica bold', 40))
-    lmain.grid()
-    button1 = Button(app, text="", command=isAccepted)
-    button1.config(height=2, width=15)
-    # button2 = Button(app, text="", command=isAccepted)
-    # button2.config(height=2, width=15)
-    app.grid(padx=10, pady=10)
-    button1.grid(row=1, column=0, padx=30, pady=20)
-    # button2.grid(padx=30, pady=20)
+    name_button = Button(app, text="", command=isAccepted)
+    name_button.config(height=2, width=35)
+    name_button.pack(padx=10, pady=10)
 
+    lmain.pack()
+
+    button1 = Button(app, bg="green", text="Register Face",
+                     command=enterPassword)
+    button1.config(height=2, width=15)
+
+    button2 = Button(app, bg="yellow", text="Help",
+                     command=helpFrame)
+    button2.config(height=2, width=15)
+
+    button3 = Button(app, bg="red", text="Exit", command=home_window.destroy)
+    button3.config(height=2, width=15)
+
+    app.pack(padx=10, pady=10)
+    button1.pack(side=LEFT, padx=30, pady=20)
+    button2.pack(side=LEFT, padx=30, pady=20)
+    button3.pack(side=LEFT, padx=30, pady=20)
 
     # time.sleep(3)/
     # home_window.mainloop()

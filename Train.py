@@ -12,7 +12,7 @@ from pymongo import MongoClient
 from datetime import datetime
 import shutil
 import configparser
-from tkinter import * 
+from tkinter import *
 from tkinter.ttk import *
 import time
 
@@ -24,16 +24,22 @@ class Train:
         train_window = Tk()
         # train_window.eval('tk::PlaceWindow . center')
         global progress
-        train_window.geometry("500x150")
+        w = 500
+        h = 150
+        ws = train_window.winfo_screenwidth()
+        hs = train_window.winfo_screenheight()
+        x = (ws/2) - (w/2)
+        y = (hs/2) - (h/2)
+        train_window.geometry('%dx%d+%d+%d' % (w, h, x, y))
         train_window.title("Training")
         leb = Label(train_window, text="Training Model...")
         leb.config(font=("Courier", 14))
         progress = Progressbar(train_window, orient=HORIZONTAL,
-                            length=300, mode='indeterminate')
+                               length=300, mode='indeterminate')
         leb.pack(pady=20)
         progress.pack(pady=10)
         train.bar(train_window)
-    
+
         # Read The Config File
         config = configparser.ConfigParser()
         config.read('config.ini')
@@ -53,16 +59,14 @@ class Train:
         db = conn.face
         collection = db.face
 
+        # 3
 
-        ##########################3
         def remove(list):
             pattern = '[0-9]'
             list = [re.sub(pattern, '', i) for i in list]
             return list
 
-
-        #################################3
-
+        # 3
 
         # declare the required lists
         paths = []
@@ -86,10 +90,12 @@ class Train:
         # get all the image files in known_people
         for x in paths:
             print(x)
-            list_of_files_images.append([f for f in glob.glob(paths[c] + '*.jpeg')])
+            list_of_files_images.append(
+                [f for f in glob.glob(paths[c] + '*.jpeg')])
             c = c + 1
 
-        logging.info('collected all images from all folders in known_people folder')
+        logging.info(
+            'collected all images from all folders in known_people folder')
         logging.debug(list_of_files_images)
 
         # make array of sample pictures with encodings
@@ -127,12 +133,14 @@ class Train:
                 logging.debug(y)
                 logging.info('loading image done')
                 logging.info('finding the encoding of image')
-                known_image_encodes = face_recognition.face_encodings(known_image)
+                known_image_encodes = face_recognition.face_encodings(
+                    known_image)
                 if len(known_image_encodes) == 0:
                     logging.error('no face is detected in image')
                     logging.info('skiping to find encodes of this image')
                     c = c + 1
-                    print("No face detected in the photo ", y, " so skipping it from training")
+                    print("No face detected in the photo ",
+                          y, " so skipping it from training")
                     len_x = len_x + 1
                     continue
                 known_face_encodings.append(known_image_encodes[0])
@@ -161,7 +169,8 @@ class Train:
             logging.info('stored name and encodes in local dictionary')
             logging.info('storing the name and encodings in mongodb')
             # store the encodings in MongoDB
-            rec_id1 = collection.insert_one({'key': names_images[d], 'encodings': known_face})
+            rec_id1 = collection.insert_one(
+                {'key': names_images[d], 'encodings': known_face})
             logging.info('stored all name and encodes in mongodb')
             # override all the temp variables
             known_face = []
@@ -170,12 +179,10 @@ class Train:
 
             # shutil.move(config['train']['images_to_train'] + '/' + names_images[d].strip(), config['train']['trained_images'])
             d = d + 1
-        
-        train_window.destroy()
-        
-            
 
-    def bar(self,root):
+        train_window.destroy()
+
+    def bar(self, root):
         # global progress
         progress['value'] = 20
         root.update_idletasks()
@@ -222,6 +229,7 @@ class Train:
         time.sleep(0.5)
         progress['value'] = 0
 
+
 if __name__ == "__main__":
     train = Train()
     train.trainImages()
@@ -234,5 +242,3 @@ if __name__ == "__main__":
 #     Button(root, text='Start', command=bar).pack(pady=10)
 #     # infinite loop
 #     mainloop()
-
-
