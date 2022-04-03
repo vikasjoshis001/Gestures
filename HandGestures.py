@@ -1,44 +1,54 @@
 # Importing Modules..
-
-import cv2
-import time
-import HandTrackingModule as htm
-from pynput.mouse import Button, Controller as mouseController
-from pynput.keyboard import Key, Controller as keyboardController
-import os
 import ctypes
-from PIL import ImageTk
-import PIL.Image
+import os
+import time
 import tkinter as tk
+from subprocess import call
 from tkinter import *
 from tkinter import messagebox as mb
-# import AImouse as ai
 
-# ai = ai.AIMouse()
+import cv2
+import numpy as np
+import PIL.Image
+import pyautogui as pmouse
+from PIL import ImageTk
+from pynput.keyboard import Controller as keyboardController
+from pynput.keyboard import Key
+from pynput.mouse import Button
+from pynput.mouse import Controller as mouseController
+
+import AIMouse as ai
+import HandTrackingModule as htm
+import MouseHandTrackingModule as m_htm
+
 mouse = mouseController()
 keyboard = keyboardController()
 wCam, hCam = 640, 480
-# cap = cv2.VideoCapture(0)
-# cap.set(3, wCam)
-# cap.set(4, hCam)
+smoothening = 10
 detector = htm.handDetector()
+m_detector = m_htm.handDetector()
 frameR = 100
+wScr, hScr = 1368, 768
 
 
 class HandGesture:
     def handGestures(self, frame):
         flag = 0
-        # detecting Hand...
         enableMouse = False
         img = detector.findHands(frame)
+        # m_img = m_detector.findHands(frame)
         lmList, bbox = detector.findPosition(img)
+        # m_lmList = m_detector.findPosition(m_img)
 
         if len(lmList) != 0:
-            # x1 = lmList[8][1:]
-            # y1 = lmList[12][1:]
+            x1 = lmList[8][1:]
+            y1 = lmList[12][1:]
+
+            # m_x1, m_y1 = lmList[8][1:]
 
             fingers = detector.fingersUp()
-            cv2.rectangle(img, (frameR, frameR), (wCam - frameR, hCam - frameR), (255, 255, 255), 2)
+            # m_fingers = m_detector.fingerUp()
+            # print("m_fingers", m_fingers)
 
             # Scrolling Up Down Gesture...
             if fingers[1] == 1 and fingers[2] == 1:
@@ -47,26 +57,13 @@ class HandGesture:
                     keyboard.press(Key.up)
                     keyboard.release(Key.up)
                     time.sleep(0.5)
-                    cv2.circle(img, (info[4], info[5]), 10, (0, 255, 0), cv2.FILLED)
+                    cv2.circle(img, (info[4], info[5]),
+                               10, (0, 255, 0), cv2.FILLED)
 
                 if length > 30:
                     keyboard.press(Key.down)
                     keyboard.release(Key.down)
                     time.sleep(0.5)
-
-            # Index
-            # print(fingers)
-            # if fingers[0] == 1 and fingers[1] == 0 and fingers[2] == 0 and fingers[3] == 0 and fingers[4] == 1:
-            #     print("Index is showing...")
-            #     index_root = tk.Toplevel()
-            #     canvas = tk.Canvas(index_root, width=100,height=100)
-            #     canvas.pack()
-            #     folder_path = "/home/vikasjoshis001/Desktop/Handtracking/FingerImages"
-            #     img_list = os.listdir(folder_path)
-            #     for imPath in img_list:
-            #         img = ImageTk.PhotoImage(PIL.Image.open(f'{folder_path}/{imPath}'))
-            #     canvas.create_image(20, 20, anchor=NW,image=img)
-            #     index_root.mainloop()
 
             # Enable Mouse
             # if fingers[0] == 0 and fingers[1] == 1 and fingers[2] == 0 and fingers[3] == 1 and fingers[4] == 1:
@@ -74,9 +71,29 @@ class HandGesture:
             #         enableMouse = True
             #     else:
             #         enableMouse = False
-            #
-            # if enableMouse:
-            #     ai.aiMouse(frame)
+
+            # if fingers[1] == 1 and fingers[2] == 0:
+            #     ai.aiMouse(img,frame,fingers)
+
+            # Volume Controller
+            if fingers[0] == 1 and fingers[1] == 1 and fingers[3] == 0:
+                length, img, lineInfo = detector.findDistance(4, 12, img)
+                if (length < 100):
+                    cv2.circle(img, (lineInfo[4], lineInfo[5]),
+                               9, (0, 255, 0), cv2.FILLED)
+                vol = np.interp(length, [15, 170], [0, 30])
+                volBar = np.interp(length, [50, 200], [400, 150])
+                volPar = np.interp(length, [50, 200], [0, 100])
+                # print('len ',vol)
+                hg = HandGesture()
+                hg.Volume(vol)
+                cv2.rectangle(frame, (50, 150), (85, 400), (0, 255, 0), 3)
+                cv2.rectangle(frame, (50, int(volBar)), (85, 400),
+                              (0, 255, 0), cv2.FILLED)
+                cv2.putText(frame, f'{int(volPar)} %', (40, 450),
+                            cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+
+                print(volBar)
 
             # Save File Gesture...
             if fingers[0] == 1 and fingers[1] == 1 and fingers[2] == 0 and fingers[3] == 0 and fingers[4] == 0:
@@ -134,6 +151,19 @@ class HandGesture:
         HandGesture().msgBox(msg, cfrmCommand, cancelCommand)
         print("HELLO")
         return
+
+    def Volume(self, vol):
+        valid = False
+        while not valid:
+            volume = vol
+            try:
+                volume = int(volume)
+                if (volume <= 100) and (volume >= 0):
+                    call(["amixer", "-D", "pulse", "sset",
+                         "Master", str(volume)+"%"])
+                    valid = True
+            except ValueError:
+                pass
 
 # def main():
 #     # Coding Gestures...

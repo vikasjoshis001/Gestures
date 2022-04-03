@@ -215,8 +215,7 @@ def clickImages(face_name):
     cap = cv2.VideoCapture(0)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 300)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 300)
-    
-    
+
     # time.sleep(2)
     index = 1
     for images in range(5):
@@ -232,7 +231,7 @@ def clickImages(face_name):
             IMAGES_PATH, uuid_name, face_name + '.' + '{}.jpeg'.format(str(uuid.uuid1())))
         cv2.imwrite(image_name, img)
         cv2.imshow('image', img)
-        cv2.moveWindow('image', 500,250)
+        cv2.moveWindow('image', 500, 250)
         time.sleep(1)
         if cv2.waitKey(1) and 0xFF == ord('q'):
             break
