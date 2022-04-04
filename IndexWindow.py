@@ -12,6 +12,10 @@ frame1 = Frame(help_window, width=0, height=50)
 frame1.grid()
 frame1.place(anchor='w', rely=0.4)
 
+title_label = Label(frame1, text="System Commands and their Gestures")
+title_label.config(font=("Courier", 14))
+title_label.grid()
+
 # Exit Image
 img1 = ImageTk.PhotoImage(Image.open("FingerImages/exit.png"))
 image_label_exit = Label(frame1, image=img1)

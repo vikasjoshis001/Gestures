@@ -42,7 +42,7 @@ class Train:
 
         # Read The Config File
         config = configparser.ConfigParser()
-        config.read('config.ini')
+        config.read('/home/vikasjoshis001/Desktop/Gestures/config.ini')
 
         # create log file
         log_file = config['train']['log'] + '/logfile_%H_%M_%S_%d_%m_%Y.log'

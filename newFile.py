@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # Import Modules...
 import configparser
 import os
@@ -7,6 +9,8 @@ import uuid
 from datetime import datetime
 import datetime
 from tkinter import *
+
+from matplotlib.pyplot import title
 import HandGestures as hg
 from tkinter import messagebox
 import sys
@@ -246,7 +250,7 @@ def registerFace():
     success_window = Tk()
     # success_window.geometry("0x0")
     centerWindow(0, 0, success_window)
-    messagebox.showinfo('Success', 'Face Registered Successfully')
+    messagebox.showinfo('Success', 'Face Registered Successfully\nReopen application to see changes')
     print("Registering Face...")
     os.system("python3 newFile.py")
     # success_window.destroy()
@@ -292,7 +296,7 @@ def enterPassword():
 
 def helpFrame():
     help_window = Toplevel(home_window)
-    help_window.title("Help")
+    help_window.title("System Commands and their Gestures")
     # help_window.geometry("700x500")
     centerWindow(700, 500, help_window)
 
@@ -301,7 +305,8 @@ def helpFrame():
     frame1.place(anchor='w', rely=0.4)
 
     # Exit Image
-    img1 = ImageTk.PhotoImage(Image.open("FingerImages/exit.png"))
+    img1 = ImageTk.PhotoImage(Image.open(
+        "/home/vikasjoshis001/Desktop/Gestures/FingerImages/exit.png"))
     image_label_exit = Label(frame1, image=img1)
     alt_label_exit = Label(frame1, text="Exit")
     alt_label_exit.config(font=("Courier", 14))
@@ -309,7 +314,8 @@ def helpFrame():
     alt_label_exit.grid(row=1, column=0, padx=10, pady=10)
 
     # LockUnlock Image
-    img2 = ImageTk.PhotoImage(Image.open("FingerImages/lockunlock.png"))
+    img2 = ImageTk.PhotoImage(Image.open(
+        "/home/vikasjoshis001/Desktop/Gestures/FingerImages/lockunlock.png"))
     image_label_lockunlock = Label(frame1, image=img2)
     alt_label_lockunlock = Label(frame1, text="Screen Lock/Unlock")
     alt_label_lockunlock.config(font=("Courier", 14))
@@ -317,7 +323,8 @@ def helpFrame():
     alt_label_lockunlock.grid(row=1, column=1, padx=30, pady=10)
 
     # Restart
-    img3 = ImageTk.PhotoImage(Image.open("FingerImages/restart.png"))
+    img3 = ImageTk.PhotoImage(Image.open(
+        "/home/vikasjoshis001/Desktop/Gestures/FingerImages/restart.png"))
     image_label_restart = Label(frame1, image=img3)
     alt_label_restart = Label(frame1, text="System Restart")
     alt_label_restart.config(font=("Courier", 14))
@@ -325,7 +332,8 @@ def helpFrame():
     alt_label_restart.grid(row=1, column=2, padx=10, pady=10)
 
     # Save
-    img4 = ImageTk.PhotoImage(Image.open("FingerImages/save.png"))
+    img4 = ImageTk.PhotoImage(Image.open(
+        "/home/vikasjoshis001/Desktop/Gestures/FingerImages/save.png"))
     image_label_save = Label(frame1, image=img4)
     alt_label_save = Label(frame1, text="Save File")
     alt_label_save.config(font=("Courier", 14))
@@ -333,12 +341,22 @@ def helpFrame():
     alt_label_save.grid(row=3, column=0, padx=10, pady=10)
 
     # Shutdown
-    img5 = ImageTk.PhotoImage(Image.open("FingerImages/shutdown.png"))
+    img5 = ImageTk.PhotoImage(Image.open(
+        "/home/vikasjoshis001/Desktop/Gestures/FingerImages/shutdown.png"))
     image_label_shutdown = Label(frame1, image=img5)
     alt_label_shutdown = Label(frame1, text="System Shutdown")
     alt_label_shutdown.config(font=("Courier", 14))
     image_label_shutdown.grid(row=2, column=1, padx=10, pady=10)
     alt_label_shutdown.grid(row=3, column=1, padx=10, pady=10)
+    
+    # VolumeController
+    img6 = ImageTk.PhotoImage(Image.open(
+        "/home/vikasjoshis001/Desktop/Gestures/FingerImages/VolumeController.jpg"))
+    image_label_shutdown = Label(frame1, image=img6)
+    alt_label_shutdown = Label(frame1, text="Volume Controller")
+    alt_label_shutdown.config(font=("Courier", 14))
+    image_label_shutdown.grid(row=2, column=2, padx=10, pady=10)
+    alt_label_shutdown.grid(row=3, column=2, padx=10, pady=10)
 
     help_window.mainloop()
 
@@ -357,7 +375,7 @@ if __name__ == "__main__":
     # Variables for config file...
     frame_name = '%H_%M_%S_%d_%m_%Y.jpg'
     config = configparser.ConfigParser()
-    config.read('config.ini')
+    config.read('/home/vikasjoshis001/Desktop/Gestures/config.ini')
 
     # Connecting Database...
     cur = connectDatabase()
@@ -373,7 +391,7 @@ if __name__ == "__main__":
 
     # Variables for clickImage function...
     process_this_frame = True
-    IMAGES_PATH = "images_to_train"
+    IMAGES_PATH = "/home/vikasjoshis001/Desktop/Gestures/images_to_train"
     number_of_images = 5
     temp_face_encodes = []
 
