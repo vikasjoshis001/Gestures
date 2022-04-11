@@ -142,15 +142,12 @@ class HandGesture:
                              'Do you really want to ' + msg)
         if res == 'yes':
             os.system(cfrmCommand)
-
         else:
-            return
+            os.system(cancelCommand)
 
     def generateBox(self, msg, cfrmCommand, cancelCommand):
-        root = tk.Tk()
         HandGesture().msgBox(msg, cfrmCommand, cancelCommand)
         print("HELLO")
-        return
 
     def Volume(self, vol):
         valid = False
