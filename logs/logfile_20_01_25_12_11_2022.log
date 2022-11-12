@@ -1,0 +1,40 @@
+2022-11-12 20:01:25.804 INFO train - <module>: MongoDB database connected successfully
+2022-11-12 20:01:25.805 INFO train - <module>: collected all folders in known_people folder
+2022-11-12 20:01:25.805 DEBUG train - <module>: ['Dilip-2022-11-12 20:00:35.168322', 'Vikas-2022-11-12 18:46:44.426386', 'arya stark']
+2022-11-12 20:01:25.806 INFO train - <module>: collected all images from all folders in known_people folder
+2022-11-12 20:01:25.806 DEBUG train - <module>: [['/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/Dilip-2022-11-12 20:00:35.168322/Dilip.94ae2515-6296-11ed-83c0-251bdbbb889b.jpeg', '/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/Dilip-2022-11-12 20:00:35.168322/Dilip.94ae2514-6296-11ed-83c0-251bdbbb889b.jpeg', '/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/Dilip-2022-11-12 20:00:35.168322/Dilip.9377a10d-6296-11ed-83c0-251bdbbb889b.jpeg', '/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/Dilip-2022-11-12 20:00:35.168322/Dilip.9223eacc-6296-11ed-83c0-251bdbbb889b.jpeg', '/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/Dilip-2022-11-12 20:00:35.168322/Dilip.9377a10c-6296-11ed-83c0-251bdbbb889b.jpeg'], [], ['/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/arya stark/images4.jpeg', '/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/arya stark/index2.jpeg', '/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/arya stark/index5.jpeg', '/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/arya stark/index3.jpeg', '/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/arya stark/index.jpeg']]
+2022-11-12 20:01:25.806 INFO train - <module>: started loading images and finding their encodings
+2022-11-12 20:01:25.806 INFO train - <module>: loading image
+2022-11-12 20:01:25.811 DEBUG train - <module>: /home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/Dilip-2022-11-12 20:00:35.168322/Dilip.94ae2515-6296-11ed-83c0-251bdbbb889b.jpeg
+2022-11-12 20:01:25.812 INFO train - <module>: loading image done
+2022-11-12 20:01:25.812 INFO train - <module>: finding the encoding of image
+2022-11-12 20:01:25.946 INFO train - <module>: finding encoding of image is done
+2022-11-12 20:01:25.946 INFO train - <module>: loading image
+2022-11-12 20:01:25.947 DEBUG train - <module>: /home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/Dilip-2022-11-12 20:00:35.168322/Dilip.94ae2514-6296-11ed-83c0-251bdbbb889b.jpeg
+2022-11-12 20:01:25.947 INFO train - <module>: loading image done
+2022-11-12 20:01:25.947 INFO train - <module>: finding the encoding of image
+2022-11-12 20:01:26.082 INFO train - <module>: finding encoding of image is done
+2022-11-12 20:01:26.082 INFO train - <module>: loading image
+2022-11-12 20:01:26.083 DEBUG train - <module>: /home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/Dilip-2022-11-12 20:00:35.168322/Dilip.9377a10d-6296-11ed-83c0-251bdbbb889b.jpeg
+2022-11-12 20:01:26.083 INFO train - <module>: loading image done
+2022-11-12 20:01:26.083 INFO train - <module>: finding the encoding of image
+2022-11-12 20:01:26.216 INFO train - <module>: finding encoding of image is done
+2022-11-12 20:01:26.217 INFO train - <module>: loading image
+2022-11-12 20:01:26.217 DEBUG train - <module>: /home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/Dilip-2022-11-12 20:00:35.168322/Dilip.9223eacc-6296-11ed-83c0-251bdbbb889b.jpeg
+2022-11-12 20:01:26.217 INFO train - <module>: loading image done
+2022-11-12 20:01:26.217 INFO train - <module>: finding the encoding of image
+2022-11-12 20:01:26.352 INFO train - <module>: finding encoding of image is done
+2022-11-12 20:01:26.352 INFO train - <module>: loading image
+2022-11-12 20:01:26.353 DEBUG train - <module>: /home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/Dilip-2022-11-12 20:00:35.168322/Dilip.9377a10c-6296-11ed-83c0-251bdbbb889b.jpeg
+2022-11-12 20:01:26.353 INFO train - <module>: loading image done
+2022-11-12 20:01:26.353 INFO train - <module>: finding the encoding of image
+2022-11-12 20:01:26.486 INFO train - <module>: finding encoding of image is done
+2022-11-12 20:01:26.486 INFO train - <module>: getting average of encodings of loaded images
+2022-11-12 20:01:26.486 INFO train - <module>: done with getting average encodings
+2022-11-12 20:01:26.486 INFO train - <module>: storing the name and encoding in local dictionary
+2022-11-12 20:01:26.486 INFO train - <module>: stored name and encodes in local dictionary
+2022-11-12 20:01:26.486 INFO train - <module>: storing the name and encodings in mongodb
+2022-11-12 20:01:26.488 INFO train - <module>: stored all name and encodes in mongodb
+2022-11-12 20:01:26.488 DEBUG train - <module>: Vikas-2022-11-12 18:46:44.426386
+2022-11-12 20:01:26.488 ERROR train - <module>: above folder is empty with no images
+2022-11-12 20:01:26.488 INFO train - <module>: exiting the program with no updates in training

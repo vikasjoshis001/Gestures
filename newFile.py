@@ -27,19 +27,17 @@ def isAccepted():
     print("yes")
 
 
-def videoStream(frame, name):
+def videoStream(frame,name):
     # _, frame = cap.read()
     cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
     img = Image.fromarray(cv2image)
-    # cv2.resize(img, (960, 540))
     imgtk = ImageTk.PhotoImage(image=img)
     lmain.imgtk = imgtk
     lmain.configure(image=imgtk)
-    # mycursor = mydb.cursor()
+    #mycursor = mydb.cursor()
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(name + datetime.datetime.now().strftime(frame_name))
-    fname = config['test']['save_images'] + "/" + name + \
-        datetime.datetime.now().strftime(frame_name)
+    print(name+datetime.datetime.now().strftime(frame_name))
+    fname=config['test']['save_images']+"/"+name+datetime.datetime.now().strftime(frame_name)
     print(fname)
     cv2.imwrite(fname, frame)
 
@@ -111,7 +109,7 @@ def recognizeFace():
             face_names = list(dict.fromkeys(face_names))
 
             # Video Window
-            videoStream(frame, name)
+            # videoStream(frame, name)
 
             if '_'.join(face_names) == 'Unknown':
                 # Draw a box around the face
@@ -125,7 +123,7 @@ def recognizeFace():
                 name_button['command'] = lambda: open_details_frame()
 
         name = '_'.join(face_names)
-        # videoStream(frame, name)
+        videoStream(frame, name)
 
         temp = name
         if temp == 'Unknown':
@@ -148,6 +146,9 @@ def recognizeFace():
     video_capture.release()
     cv2.destroyAllWindows()
 
+# Get data from frame...
+def open_details_frame(name):
+    qwerty = collection.find_one({'key': name})
 
 def connectDatabase():
     # Connecting Database...
@@ -161,10 +162,6 @@ def connectDatabase():
     db = conn.face
     collection = db.face
     cur = collection.find()
-
-    # Get data from frame...
-    def open_details_frame(name):
-        qwerty = collection.find_one({'key': name})
 
     return cur
 
@@ -375,7 +372,7 @@ if __name__ == "__main__":
     # Variables for config file...
     frame_name = '%H_%M_%S_%d_%m_%Y.jpg'
     config = configparser.ConfigParser()
-    config.read('/home/vikasjoshis001/Desktop/Gestures/config.ini')
+    config.read('/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/config.ini')
 
     # Connecting Database...
     cur = connectDatabase()
@@ -391,7 +388,7 @@ if __name__ == "__main__":
 
     # Variables for clickImage function...
     process_this_frame = True
-    IMAGES_PATH = "/home/vikasjoshis001/Desktop/Gestures/images_to_train"
+    IMAGES_PATH = "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/"
     number_of_images = 5
     temp_face_encodes = []
 
@@ -441,13 +438,15 @@ if __name__ == "__main__":
     temp_time = datetime.datetime.now()
     old_face_encodings = []
 
+    startProject()
+
     # Variables for registering face...
-    register_face = False
+    register_face = True
     if register_face:
         print('Enter your name?')
         face_name = input()
         # face_name = "Vikas"
-        clickImages()
+        clickImages(face_name)
 
     # home_window.mainloop()
 
