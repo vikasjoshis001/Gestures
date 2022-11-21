@@ -100,9 +100,12 @@ class HandGesture:
             # Volume Down Gesture...
             if fingers[0] == 1 and fingers[1] == 1 and fingers[2] == 0 and fingers[3] == 0 and fingers[4] == 0:
                 print("Volume Down...")
-                with keyboard.pressed(Key.ctrl):
-                    keyboard.press('S')
-                    keyboard.release('S')
+                # with keyboard.pressed(Key.ctrl):
+                #     keyboard.press('S')
+                #     keyboard.release('S')
+                keyboard.press(Key.media_volume_mute)
+                keyboard.release(Key.media_volume_mute)
+
 
 
             # Exit File Gesture...
