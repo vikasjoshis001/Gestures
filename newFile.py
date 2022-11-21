@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # Import Modules...
 import configparser
 import os
@@ -7,6 +9,8 @@ import uuid
 from datetime import datetime
 import datetime
 from tkinter import *
+
+from matplotlib.pyplot import title
 import HandGestures as hg
 from tkinter import messagebox
 import sys
@@ -23,19 +27,17 @@ def isAccepted():
     print("yes")
 
 
-def videoStream(frame, name):
+def videoStream(frame,name):
     # _, frame = cap.read()
     cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
     img = Image.fromarray(cv2image)
-    # cv2.resize(img, (960, 540))
     imgtk = ImageTk.PhotoImage(image=img)
     lmain.imgtk = imgtk
     lmain.configure(image=imgtk)
-    # mycursor = mydb.cursor()
+    #mycursor = mydb.cursor()
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(name + datetime.datetime.now().strftime(frame_name))
-    fname = config['test']['save_images'] + "/" + name + \
-        datetime.datetime.now().strftime(frame_name)
+    print(name+datetime.datetime.now().strftime(frame_name))
+    fname=config['test']['save_images']+"/"+name+datetime.datetime.now().strftime(frame_name)
     print(fname)
     cv2.imwrite(fname, frame)
 
@@ -107,7 +109,7 @@ def recognizeFace():
             face_names = list(dict.fromkeys(face_names))
 
             # Video Window
-            videoStream(frame, name)
+            # videoStream(frame, name)
 
             if '_'.join(face_names) == 'Unknown':
                 # Draw a box around the face
@@ -121,7 +123,7 @@ def recognizeFace():
                 name_button['command'] = lambda: open_details_frame()
 
         name = '_'.join(face_names)
-        # videoStream(frame, name)
+        videoStream(frame, name)
 
         temp = name
         if temp == 'Unknown':
@@ -144,6 +146,9 @@ def recognizeFace():
     video_capture.release()
     cv2.destroyAllWindows()
 
+# Get data from frame...
+def open_details_frame(name):
+    qwerty = collection.find_one({'key': name})
 
 def connectDatabase():
     # Connecting Database...
@@ -157,10 +162,6 @@ def connectDatabase():
     db = conn.face
     collection = db.face
     cur = collection.find()
-
-    # Get data from frame...
-    def open_details_frame(name):
-        qwerty = collection.find_one({'key': name})
 
     return cur
 
@@ -215,8 +216,7 @@ def clickImages(face_name):
     cap = cv2.VideoCapture(0)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 300)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 300)
-    
-    
+
     # time.sleep(2)
     index = 1
     for images in range(5):
@@ -232,7 +232,7 @@ def clickImages(face_name):
             IMAGES_PATH, uuid_name, face_name + '.' + '{}.jpeg'.format(str(uuid.uuid1())))
         cv2.imwrite(image_name, img)
         cv2.imshow('image', img)
-        cv2.moveWindow('image', 500,250)
+        cv2.moveWindow('image', 500, 250)
         time.sleep(1)
         if cv2.waitKey(1) and 0xFF == ord('q'):
             break
@@ -247,7 +247,7 @@ def registerFace():
     success_window = Tk()
     # success_window.geometry("0x0")
     centerWindow(0, 0, success_window)
-    messagebox.showinfo('Success', 'Face Registered Successfully')
+    messagebox.showinfo('Success', 'Face Registered Successfully\nReopen application to see changes')
     print("Registering Face...")
     os.system("python3 newFile.py")
     # success_window.destroy()
@@ -292,8 +292,9 @@ def enterPassword():
 
 
 def helpFrame():
+    global help_window
     help_window = Toplevel(home_window)
-    help_window.title("Help")
+    help_window.title("System Commands and their Gestures")
     # help_window.geometry("700x500")
     centerWindow(700, 500, help_window)
 
@@ -302,7 +303,8 @@ def helpFrame():
     frame1.place(anchor='w', rely=0.4)
 
     # Exit Image
-    img1 = ImageTk.PhotoImage(Image.open("FingerImages/exit.png"))
+    img1 = ImageTk.PhotoImage(Image.open(
+        "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/FingerImages/exit.png"))
     image_label_exit = Label(frame1, image=img1)
     alt_label_exit = Label(frame1, text="Exit")
     alt_label_exit.config(font=("Courier", 14))
@@ -310,7 +312,8 @@ def helpFrame():
     alt_label_exit.grid(row=1, column=0, padx=10, pady=10)
 
     # LockUnlock Image
-    img2 = ImageTk.PhotoImage(Image.open("FingerImages/lockunlock.png"))
+    img2 = ImageTk.PhotoImage(Image.open(
+        "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/FingerImages/lockunlock.png"))
     image_label_lockunlock = Label(frame1, image=img2)
     alt_label_lockunlock = Label(frame1, text="Screen Lock/Unlock")
     alt_label_lockunlock.config(font=("Courier", 14))
@@ -318,7 +321,8 @@ def helpFrame():
     alt_label_lockunlock.grid(row=1, column=1, padx=30, pady=10)
 
     # Restart
-    img3 = ImageTk.PhotoImage(Image.open("FingerImages/restart.png"))
+    img3 = ImageTk.PhotoImage(Image.open(
+        "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/FingerImages/restart.png"))
     image_label_restart = Label(frame1, image=img3)
     alt_label_restart = Label(frame1, text="System Restart")
     alt_label_restart.config(font=("Courier", 14))
@@ -326,7 +330,8 @@ def helpFrame():
     alt_label_restart.grid(row=1, column=2, padx=10, pady=10)
 
     # Save
-    img4 = ImageTk.PhotoImage(Image.open("FingerImages/save.png"))
+    img4 = ImageTk.PhotoImage(Image.open(
+        "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/FingerImages/save.png"))
     image_label_save = Label(frame1, image=img4)
     alt_label_save = Label(frame1, text="Save File")
     alt_label_save.config(font=("Courier", 14))
@@ -334,15 +339,36 @@ def helpFrame():
     alt_label_save.grid(row=3, column=0, padx=10, pady=10)
 
     # Shutdown
-    img5 = ImageTk.PhotoImage(Image.open("FingerImages/shutdown.png"))
+    img5 = ImageTk.PhotoImage(Image.open(
+        "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/FingerImages/shutdown.png"))
     image_label_shutdown = Label(frame1, image=img5)
     alt_label_shutdown = Label(frame1, text="System Shutdown")
     alt_label_shutdown.config(font=("Courier", 14))
     image_label_shutdown.grid(row=2, column=1, padx=10, pady=10)
     alt_label_shutdown.grid(row=3, column=1, padx=10, pady=10)
+    
+    # VolumeController
+    img6 = ImageTk.PhotoImage(Image.open(
+        "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/FingerImages/VolumeController.jpg"))
+    image_label_shutdown = Label(frame1, image=img6)
+    alt_label_shutdown = Label(frame1, text="Volume Controller")
+    alt_label_shutdown.config(font=("Courier", 14))
+    image_label_shutdown.grid(row=2, column=2, padx=10, pady=10)
+    alt_label_shutdown.grid(row=3, column=2, padx=10, pady=10)
+
+    back_button = Button(help_window, bg="red", text="Back", command=backFunction)
+    back_button.config(height=2, width=35)
+    back_button.pack(side=BOTTOM, padx=30, pady=70)
+
+
+
 
     help_window.mainloop()
 
+
+def backFunction():
+    help_window.destroy()
+    startProject()
 
 def centerWindow(width, height, window):
     w = width
@@ -358,7 +384,7 @@ if __name__ == "__main__":
     # Variables for config file...
     frame_name = '%H_%M_%S_%d_%m_%Y.jpg'
     config = configparser.ConfigParser()
-    config.read('config.ini')
+    config.read('/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/config.ini')
 
     # Connecting Database...
     cur = connectDatabase()
@@ -374,11 +400,12 @@ if __name__ == "__main__":
 
     # Variables for clickImage function...
     process_this_frame = True
-    IMAGES_PATH = "images_to_train"
+    IMAGES_PATH = "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/images_to_train/"
     number_of_images = 5
     temp_face_encodes = []
 
     # global root
+    global home_window
     home_window = Tk()
     home_window.title("Home")
     # home_window.geometry("500x150")
@@ -424,13 +451,16 @@ if __name__ == "__main__":
     temp_time = datetime.datetime.now()
     old_face_encodings = []
 
+
+    startProject()
+
     # Variables for registering face...
-    register_face = False
+    register_face = True
     if register_face:
         print('Enter your name?')
         face_name = input()
         # face_name = "Vikas"
-        clickImages()
+        clickImages(face_name)
 
     # home_window.mainloop()
 

@@ -149,6 +149,7 @@ def connectDatabase():
     db = conn.face
     collection = db.face
     cur = collection.find()
+    print("Connected...")
 
     # Get data from frame...
     def open_details_frame(name):

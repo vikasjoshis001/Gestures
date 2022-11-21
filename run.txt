@@ -1,0 +1,1 @@
+cd Files/envs/mlenv && source bin/activate && cd ~ && cd Files/Projects/My_Projects/Gestures

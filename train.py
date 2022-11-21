@@ -15,7 +15,7 @@ import configparser
 
 # Read The Config File
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read('/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/config.ini')
 
 # create log file
 log_file = config['train']['log'] + '/logfile_%H_%M_%S_%d_%m_%Y.log'
@@ -52,7 +52,7 @@ c = 0
 dirname = os.path.dirname(__file__)
 print(dirname)
 for x in os.walk(config['train']['images_to_train']):
-    print(x)
+    print("First X = \n",x)
     if c == 0:
         c = 1
         names_images = x[1]
@@ -64,7 +64,7 @@ logging.debug(names_images)
 
 # get all the image files in known_people
 for x in paths:
-    print(x)
+    print("Second X = \n", x)
     list_of_files_images.append([f for f in glob.glob(paths[c] + '*.jpeg')])
     c = c + 1
 
@@ -89,6 +89,7 @@ len_x = 0
 
 # check if folder is empty
 for x in list_of_files_images_new:
+    print("Third X = \n", x)
     print("training ", names_images[d])
     if len(x) == 0:
         print(names_images[d], " folder is empty")
