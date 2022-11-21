@@ -1,2 +1,15 @@
+sudo systemctl start mongod
+sudo systemctl daemon-reload
+
+
 use face;
-db.face.remove({});
+db.createCollection("face") --> To create tables
+show collections --> To check tables
+db.face.find() --> To check content of table
+db.face.remove({}); --> To remove all data of table
+
+Solution :-
+
+sudo rm -rf /tmp/mongodb-27017.sock
+sudo service mongod start
+

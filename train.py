@@ -148,5 +148,5 @@ for x in list_of_files_images_new:
     known_face_encodings = []
     # move trained images to another folder
 
-    shutil.move(config['train']['images_to_train'] + '/' + names_images[d].strip(), config['train']['trained_images'])
+    # shutil.move(config['train']['images_to_train'] + '/' + names_images[d].strip(), config['train']['trained_images'])
     d = d + 1

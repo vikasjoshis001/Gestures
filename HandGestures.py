@@ -10,7 +10,7 @@ from tkinter import messagebox as mb
 import cv2
 import numpy as np
 import PIL.Image
-import pyautogui as pmouse
+import pyautogui
 from PIL import ImageTk
 from pynput.keyboard import Controller as keyboardController
 from pynput.keyboard import Key
@@ -33,6 +33,7 @@ wScr, hScr = 1368, 768
 
 class HandGesture:
     def handGestures(self, frame):
+        print("Volume muted")
         flag = 0
         enableMouse = False
         img = detector.findHands(frame)
@@ -49,6 +50,7 @@ class HandGesture:
             fingers = detector.fingersUp()
             # m_fingers = m_detector.fingerUp()
             # print("m_fingers", m_fingers)
+            print("fingers = ", fingers)
 
             # Scrolling Up Down Gesture...
             if fingers[1] == 1 and fingers[2] == 1:
@@ -76,36 +78,37 @@ class HandGesture:
             #     ai.aiMouse(img,frame,fingers)
 
             # Volume Controller
-            if fingers[0] == 1 and fingers[1] == 1 and fingers[3] == 0:
-                length, img, lineInfo = detector.findDistance(4, 12, img)
-                if (length < 100):
-                    cv2.circle(img, (lineInfo[4], lineInfo[5]),
-                               9, (0, 255, 0), cv2.FILLED)
-                vol = np.interp(length, [15, 170], [0, 30])
-                volBar = np.interp(length, [50, 200], [400, 150])
-                volPar = np.interp(length, [50, 200], [0, 100])
-                # print('len ',vol)
-                hg = HandGesture()
-                hg.Volume(vol)
-                cv2.rectangle(frame, (50, 150), (85, 400), (0, 255, 0), 3)
-                cv2.rectangle(frame, (50, int(volBar)), (85, 400),
-                              (0, 255, 0), cv2.FILLED)
-                cv2.putText(frame, f'{int(volPar)} %', (40, 450),
-                            cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+            # if fingers[0] == 1 and fingers[1] == 1 and fingers[3] == 0:
+            #     length, img, lineInfo = detector.findDistance(4, 12, img)
+            #     if (length < 100):
+            #         cv2.circle(img, (lineInfo[4], lineInfo[5]),
+            #                    9, (0, 255, 0), cv2.FILLED)
+            #     vol = np.interp(length, [15, 170], [0, 30])
+            #     volBar = np.interp(length, [50, 200], [400, 150])
+            #     volPar = np.interp(length, [50, 200], [0, 100])
+            #     # print('len ',vol)
+            #     hg = HandGesture()
+            #     hg.Volume(vol)
+            #     cv2.rectangle(frame, (50, 150), (85, 400), (0, 255, 0), 3)
+            #     cv2.rectangle(frame, (50, int(volBar)), (85, 400),
+            #                   (0, 255, 0), cv2.FILLED)
+            #     cv2.putText(frame, f'{int(volPar)} %', (40, 450),
+            #                 cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
 
-                print(volBar)
+            #     print(volBar)
 
-            # Save File Gesture...
+            # Volume Down Gesture...
             if fingers[0] == 1 and fingers[1] == 1 and fingers[2] == 0 and fingers[3] == 0 and fingers[4] == 0:
-                print("Save Gesture running...")
+                print("Volume Down...")
                 with keyboard.pressed(Key.ctrl):
-                    keyboard.press("S")
-                    keyboard.release("S")
+                    keyboard.press('S')
+                    keyboard.release('S')
+
 
             # Exit File Gesture...
             if fingers[0] == 1 and fingers[1] == 1 and fingers[2] == 1 and fingers[3] == 0 and fingers[4] == 0:
                 print("Exit Gesture running...")
-                with keyboard.pressed(Key.ctrl):
+                with keyboard.pressed(Key.alt):
                     keyboard.press(Key.f4)
                     keyboard.release(Key.f4)
 
@@ -123,16 +126,13 @@ class HandGesture:
                 cfrmCommand = "poweroff"
                 cancelCommand = "shutdown -c"
                 HandGesture().generateBox("Shutdown", cfrmCommand, cancelCommand)
-                exit()
 
             # Restart Gesture...
             if fingers[0] == 0 and fingers[1] == 0 and fingers[2] == 1 and fingers[3] == 1 and fingers[4] == 1:
                 print("Restarting Down...")
                 cfrmCommand = "reboot"
                 cancelCommand = "shutdown -c"
-                if flag == 0:
-                    HandGesture().generateBox("Restart", cfrmCommand, cancelCommand)
-                    flag = 1
+                HandGesture().generateBox("Restart", cfrmCommand, cancelCommand)
 
             # im = cv2.imshow("Image", img)
             return img
@@ -150,6 +150,7 @@ class HandGesture:
         print("HELLO")
 
     def Volume(self, vol):
+        # pyDirectInput.press('volumeup')
         valid = False
         while not valid:
             volume = vol

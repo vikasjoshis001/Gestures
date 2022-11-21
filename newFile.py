@@ -292,6 +292,7 @@ def enterPassword():
 
 
 def helpFrame():
+    global help_window
     help_window = Toplevel(home_window)
     help_window.title("System Commands and their Gestures")
     # help_window.geometry("700x500")
@@ -303,7 +304,7 @@ def helpFrame():
 
     # Exit Image
     img1 = ImageTk.PhotoImage(Image.open(
-        "/home/vikasjoshis001/Desktop/Gestures/FingerImages/exit.png"))
+        "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/FingerImages/exit.png"))
     image_label_exit = Label(frame1, image=img1)
     alt_label_exit = Label(frame1, text="Exit")
     alt_label_exit.config(font=("Courier", 14))
@@ -312,7 +313,7 @@ def helpFrame():
 
     # LockUnlock Image
     img2 = ImageTk.PhotoImage(Image.open(
-        "/home/vikasjoshis001/Desktop/Gestures/FingerImages/lockunlock.png"))
+        "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/FingerImages/lockunlock.png"))
     image_label_lockunlock = Label(frame1, image=img2)
     alt_label_lockunlock = Label(frame1, text="Screen Lock/Unlock")
     alt_label_lockunlock.config(font=("Courier", 14))
@@ -321,7 +322,7 @@ def helpFrame():
 
     # Restart
     img3 = ImageTk.PhotoImage(Image.open(
-        "/home/vikasjoshis001/Desktop/Gestures/FingerImages/restart.png"))
+        "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/FingerImages/restart.png"))
     image_label_restart = Label(frame1, image=img3)
     alt_label_restart = Label(frame1, text="System Restart")
     alt_label_restart.config(font=("Courier", 14))
@@ -330,7 +331,7 @@ def helpFrame():
 
     # Save
     img4 = ImageTk.PhotoImage(Image.open(
-        "/home/vikasjoshis001/Desktop/Gestures/FingerImages/save.png"))
+        "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/FingerImages/save.png"))
     image_label_save = Label(frame1, image=img4)
     alt_label_save = Label(frame1, text="Save File")
     alt_label_save.config(font=("Courier", 14))
@@ -339,7 +340,7 @@ def helpFrame():
 
     # Shutdown
     img5 = ImageTk.PhotoImage(Image.open(
-        "/home/vikasjoshis001/Desktop/Gestures/FingerImages/shutdown.png"))
+        "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/FingerImages/shutdown.png"))
     image_label_shutdown = Label(frame1, image=img5)
     alt_label_shutdown = Label(frame1, text="System Shutdown")
     alt_label_shutdown.config(font=("Courier", 14))
@@ -348,15 +349,26 @@ def helpFrame():
     
     # VolumeController
     img6 = ImageTk.PhotoImage(Image.open(
-        "/home/vikasjoshis001/Desktop/Gestures/FingerImages/VolumeController.jpg"))
+        "/home/vikasjoshis001/Files/Projects/My_Projects/Gestures/FingerImages/VolumeController.jpg"))
     image_label_shutdown = Label(frame1, image=img6)
     alt_label_shutdown = Label(frame1, text="Volume Controller")
     alt_label_shutdown.config(font=("Courier", 14))
     image_label_shutdown.grid(row=2, column=2, padx=10, pady=10)
     alt_label_shutdown.grid(row=3, column=2, padx=10, pady=10)
 
+    back_button = Button(help_window, bg="red", text="Back", command=backFunction)
+    back_button.config(height=2, width=35)
+    back_button.pack(side=BOTTOM, padx=30, pady=70)
+
+
+
+
     help_window.mainloop()
 
+
+def backFunction():
+    help_window.destroy()
+    startProject()
 
 def centerWindow(width, height, window):
     w = width
@@ -393,6 +405,7 @@ if __name__ == "__main__":
     temp_face_encodes = []
 
     # global root
+    global home_window
     home_window = Tk()
     home_window.title("Home")
     # home_window.geometry("500x150")
@@ -437,6 +450,7 @@ if __name__ == "__main__":
     temp_encodings = []
     temp_time = datetime.datetime.now()
     old_face_encodings = []
+
 
     startProject()
 
